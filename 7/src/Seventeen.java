@@ -1,67 +1,31 @@
+class Amphibian1{
 
-class AlertStatus{
+    public void Colour(){
 
-    public void print(){
-        System.out.println("None status");
+    }
+
+    static void Temperature(Amphibian1 amphibian){
+
     }
 
 }
 
-class  AlertGOODStatus extends  AlertStatus{
+class Frog1 extends Amphibian1{
 
-    public void print(){
-        System.out.println("Good status");
+    public void Colour(){
+
     }
 
+    static void Temperature(Amphibian1 amphibian){
+
+    }
 }
 
-class  AlertBadStatus extends  AlertStatus{
-
-    public void print(){
-        System.out.println("Bad status");
-    }
-
-}
-
-class  AlertFineStatus extends  AlertStatus{
-
-    public void print(){
-        System.out.println("Fine status");
-    }
-
-}
-
-class Starship{
-    private AlertStatus alertStatus = new AlertStatus();
-
-    public void changeGood(){
-        alertStatus = new AlertGOODStatus();
-    }
-
-    public void changeBad(){
-        alertStatus = new AlertBadStatus();
-    }
-
-    public void changeFine(){
-        alertStatus = new AlertFineStatus();
-    }
-
-    public void printStatus(){
-        alertStatus.print();
-    }
-
-}
 
 public class Seventeen {
     public static void main(String[] args) {
-        Starship starship = new Starship();
-        starship.printStatus();
-        starship.changeBad();
-        starship.printStatus();
-        starship.changeGood();
-        starship.printStatus();
-        starship.changeFine();
-        starship.printStatus();
+        Frog1 frog1 = new Frog1();
+        frog1.Colour();
+        Amphibian1.Temperature(frog1);
     }
-
 }

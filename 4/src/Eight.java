@@ -1,26 +1,13 @@
-class this_{
-    int i=0,j=0;
-this_ use_this(){
-    i++;
-    return this;
-}
-void not_use_this(){
-    j++;
-}
-void print_i (){
-    System.out.println("i: "+i);
-}
-void print_j (){
-    System.out.println("j: "+j);
-}
-}
 public class Eight {
     public static void main(String[] args) {
-        this_ a = new this_();
-        a.use_this().use_this().use_this().print_i();
-        a.not_use_this();
-        a.not_use_this();
-        a.not_use_this();
-        a.print_j();
+        int a = 3;
+        switch (a){
+            case 0:System.out.println(0);break;
+            case 1:System.out.println(1);break;
+            case 2:System.out.println(2);break;
+            case 3:System.out.println(3);break;
+            case 4:System.out.println(4);break;
+            default: System.out.println(-1);
+        }
     }
 }

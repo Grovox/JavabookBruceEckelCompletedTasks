@@ -1,16 +1,17 @@
+
+class speed_two{
+    int Time = 5;
+    int Long = 7;
+    int Speed;
+    void Calculation(){
+        Speed = Time * Long;
+    }
+}
+
 public class Four {
     public static void main(String[] args) {
-        int k=0;
-        for(int i=1;i<1000;i++){
-            for(int j=1;j<=i;j++){
-                if(i%j == 0){
-                    k++;
-                }
-            }
-            if(k<3){
-                System.out.println(i);
-            }
-            k=0;
-        }
+        speed_two sp = new speed_two();
+        sp.Calculation();
+        System.out.println("Скорость: "+sp.Speed);
     }
 }

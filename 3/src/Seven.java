@@ -1,11 +1,11 @@
+import java.util.Random;
+
 public class Seven {
     public static void main(String[] args) {
-        int a=1;
-        while (1==1){
-            System.out.println(a);
-            if(a==99) break;
-            a++;
-        }
-
+        Random rand = new Random();
+        int coin = rand.nextInt(2);
+        if(coin == 1){
+            System.out.println("Rejka");
+        }else System.out.println("Orol");
     }
 }

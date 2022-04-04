@@ -1,50 +1,23 @@
-class Glyph{
+class Amphibian{
 
-    void draw(){
-        System.out.println("Glyph.draw()");
+    public void Colour(){
+
     }
 
-    Glyph(){
-        System.out.println("Перед вызовом Draw");
-        draw();
-        System.out.println("После вызова Draw");
-    }
+    static void Temperature(Amphibian amphibian){
 
-}
-
-class RoundGlyph extends Glyph{
-
-    private int radius = 1;
-
-    RoundGlyph(int r){
-        radius = r;
-        System.out.println("RoundGlyph.RoundGlyph(), radios = " + radius);
-    }
-
-    void draw(){
-        System.out.println("RoundGlyph.draw(), radios = " + radius);
     }
 
 }
 
-class RectangularGlyph extends Glyph{
-
-    private int width = 3;
-
-    RectangularGlyph(int r){
-        width = r;
-        System.out.println("RoundGlyph.RoundGlyph(), radios = " + width);
-    }
-
-    void draw(){
-        System.out.println("RoundGlyph.draw(), radios = " + width);
-    }
+class Frog extends Amphibian{
 
 }
 
 public class Sixteen {
     public static void main(String[] args) {
-        new RoundGlyph(5);
-        new RectangularGlyph(7);
+        Frog frog = new Frog();
+        frog.Colour();
+        Amphibian.Temperature(frog);
     }
 }

@@ -1,7 +1,13 @@
-import Test_seven.access.*;
+class konst{
+    int k=5;
+    void out(){
+        System.out.println(k);
+    }
+}
 
 public class Seven {
     public static void main(String[] args) {
-        //Test_seven test = new Test_seven();
+        konst b = new konst();
+        b.out();
     }
 }

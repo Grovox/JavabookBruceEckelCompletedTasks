@@ -1,13 +1,8 @@
 public class Eight {
     public static void main(String[] args) {
-        int a = 3;
-        switch (a){
-            case 0:System.out.println(0);break;
-            case 1:System.out.println(1);break;
-            case 2:System.out.println(2);break;
-            case 3:System.out.println(3);break;
-            case 4:System.out.println(4);break;
-            default: System.out.println(-1);
-        }
+        long One_number = 0x2f;
+        System.out.println(Long.toBinaryString(One_number));
+        long Two_number = 0177;
+        System.out.println(Long.toBinaryString(Two_number));
     }
 }

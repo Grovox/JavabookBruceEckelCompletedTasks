@@ -1,67 +1,44 @@
-class Shared {
 
-    private int refcout = 0;
-    private static long counter = 0;
-    private final long id = counter++;
-
-    public Shared(){
-        System.out.println("Coздаем " + this);
-    }
-
-    public void addRef(){
-        refcout++;
-    }
-
-    protected void dispose(){
-        if(--refcout == 0){
-            System.out.println("Disposing " + this);
-        }
-    }
-
-    public String toString(){
-        return "Shared " + id;
-    }
-
-    @Override
-    protected void finalize() {
-        System.out.println("finalize().Shared");
-    }
+class Engine{
+    public void start(){}
+    public void rev(){}
+    public void stop(){}
+    public void service(){}
 }
 
-class Composing {
-    private Shared shared;
-    private static long counter = 0;
-    private final long id = counter++;
-    public Composing(Shared shared){
-        System.out.println("Создаем " + this);
-        this.shared = shared;
-        this.shared.addRef();
-    }
+class Wheel{
+    public void inflate(int psi){}
+}
 
-    protected void dispose(){
-        System.out.println("dispose " + this);
-        shared.dispose();
-    }
+class Window {
+    public void rollup(){}
+    public void rolldown(){}
+}
 
-    public String toString(){
-        return "Composing " + id;
-    }
+class Door{
+    public Window window = new Window();
+    public void open(){}
+    public void close(){}
+}
 
-    @Override
-    protected void finalize(){
-        System.out.println("finalize().Composing"+ this);
+class  Car{
+    public Engine engine = new Engine();
+    public Wheel[] wheel = new Wheel[4];
+    public Door
+    left = new Door(),
+    right = new Door();
+    Car(){
+        for(int i =0;i<4;i++){
+            wheel[i] = new Wheel();
+        }
     }
-
 }
 
 public class Fourteen {
-    public static void main(String[] args){
-        Shared shared = new Shared();
-        Composing[] composing = {new Composing(shared),new Composing(shared),new Composing(shared),new Composing(shared),new Composing(shared)};
-        for(Composing c : composing) {
-            c.dispose();
-            c.finalize();
-        }
-        shared.finalize();
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.left.window.rollup();
+        car.wheel[0].inflate(72);
+        car.engine.service();
     }
 }

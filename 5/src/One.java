@@ -1,7 +1,9 @@
- import max.close.Pack;
-class One {
+
+class text{
+    String b;
+}
+public class One {
     public static void main(String[] args) {
-        Pack k = new Pack();
-        System.out.println(k.a);
+        System.out.println(new text().b);
     }
 }

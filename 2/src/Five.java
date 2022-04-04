@@ -1,16 +1,8 @@
-class dog{
-    String name;
-    String says;
-}
+import java.util.*;
+
 public class Five {
     public static void main(String[] args) {
-        dog dog_one = new dog();
-        dog dog_two = new dog();
-        dog_one.name = "Mary";
-        dog_two.name = "Max";
-        dog_one.says = "Hi Max";
-        dog_two.says = "Hello Mary";
-        System.out.println(dog_one.name+": "+dog_one.says);
-        System.out.println(dog_two.name+": "+dog_two.says);
+        DateOnly Date1 = new DateOnly();
+        System.out.println(Date1.i+" "+ Date1.d+" "+Date1.b);
     }
 }

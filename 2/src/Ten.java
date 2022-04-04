@@ -1,12 +1,20 @@
 public class Ten {
     public static void main(String[] args) {
-        int i = 0x15;
-        int j = 0x2a;
-        System.out.println(Integer.toBinaryString(i)+" "+Integer.toBinaryString(j));
-        System.out.println(Integer.toBinaryString(i&j));
-        System.out.println(Integer.toBinaryString(i|j));
-        System.out.println(Integer.toBinaryString(i^j));
-        System.out.println(Integer.toBinaryString(~i));
-        System.out.println(Integer.toBinaryString(~j));
+        AllTheColorsOfTheRainbow Color = new AllTheColorsOfTheRainbow();
+        Color.anIntegerRepresentingColor = 1;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 2;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 3;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 4;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 5;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 6;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+        Color.anIntegerRepresentingColor = 7;
+        Color.ChangeTheHueOfTheColor(Color.anIntegerRepresentingColor);
+
     }
 }

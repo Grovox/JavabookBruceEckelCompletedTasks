@@ -1,40 +1,26 @@
-
-class ConnectionManager {
-    private static int k=0;
-    static class Connection{
-        private Connection(){
-
-        }
-        public void prt(){
-            System.out.println("Кость");
-        }
-    }
-    private static Connection[] connections;
-    private ConnectionManager(){
-
-    }
-    static Connection[] outp() {
-        if (k < 5) {
-            k++;
-            return connections = new Connection[]{new Connection(), new Connection(), new Connection(), new Connection(), new Connection()};
-        }else return null;
-    }
-
+class this_{
+    int i=0,j=0;
+this_ use_this(){
+    i++;
+    return this;
 }
-
+void not_use_this(){
+    j++;
+}
+void print_i (){
+    System.out.println("i: "+i);
+}
+void print_j (){
+    System.out.println("j: "+j);
+}
+}
 public class Eight {
     public static void main(String[] args) {
-        ConnectionManager.Connection[] con1 =ConnectionManager.outp();
-        con1[0].prt();
-        ConnectionManager.Connection[] con2 =ConnectionManager.outp();
-        con2[0].prt();
-        ConnectionManager.Connection[] con3 =ConnectionManager.outp();
-        con3[0].prt();
-        ConnectionManager.Connection[] con4 =ConnectionManager.outp();
-        con4[0].prt();
-        ConnectionManager.Connection[] con5 =ConnectionManager.outp();
-        con5[0].prt();
-        ConnectionManager.Connection[] con6 =ConnectionManager.outp();
-        con6[0].prt();
+        this_ a = new this_();
+        a.use_this().use_this().use_this().print_i();
+        a.not_use_this();
+        a.not_use_this();
+        a.not_use_this();
+        a.print_j();
     }
 }

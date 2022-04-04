@@ -1,15 +1,16 @@
-class message_main{
-    message_main(){
-        System.out.println("Hello");
-    }
-    message_main(String name){
-        System.out.println("Hello "+name);
-    }
-}
-
 public class Four {
     public static void main(String[] args) {
-        new message_main();
-        new message_main("Mary");
+        int k=0;
+        for(int i=1;i<1000;i++){
+            for(int j=1;j<=i;j++){
+                if(i%j == 0){
+                    k++;
+                }
+            }
+            if(k<3){
+                System.out.println(i);
+            }
+            k=0;
+        }
     }
 }

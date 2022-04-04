@@ -1,18 +1,12 @@
-class A{
-A(){
-    System.out.println("Я класс A");
-}
-}
+import Test_five.*;
 
-class B{
-    B(){
-        System.out.println("Я класс B");
-    }
-}
-
-public class Five extends A {
-    B b = new B();
+public class Five {
     public static void main(String[] args) {
-        Five five = new Five();
+       //priv a = new priv();
+       prot b = new prot();
+       pab c = new pab();
+       //a.prt_priv();
+       //b.prt_prot();
+       c.prt_pab();
     }
 }

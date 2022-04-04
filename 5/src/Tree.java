@@ -1,8 +1,10 @@
-//import version.debug.*;
-import version.debugoff.*;
-
+class message{
+    message(){
+        System.out.println("Hello");
+    }
+}
 public class Tree {
     public static void main(String[] args) {
-        simple k = new simple();
+        message mess = new message();
     }
 }

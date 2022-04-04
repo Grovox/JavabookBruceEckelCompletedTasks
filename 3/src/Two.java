@@ -1,23 +1,18 @@
-import java.util.Random;
-
-public class Two {
+class BankTwo{
+    float Package;
+}
+class Change{
+    static void f(BankTwo k){
+        k.Package = 123.3f;
+    }
+}
+public class Two{
     public static void main(String[] args) {
-        int a,b;
-        Random rand = new Random();
-        for(int i=0;i<25;i++){
-            a=rand.nextInt(101);
-            b=rand.nextInt(101);
-            System.out.println("a: "+a);
-            System.out.println("b: "+b);
-            if(a > b){
-                System.out.println("a > b");
-            }
-            if(a == b){
-                System.out.println("a = b");
-            }
-            if(a < b){
-                System.out.println("a < b");
-            }
-        }
+        BankTwo B1 = new BankTwo();
+        Change change = new Change();
+        B1.Package = 7.12f;
+        System.out.println(B1.Package);
+        change.f(B1);
+        System.out.println(B1.Package);
     }
 }

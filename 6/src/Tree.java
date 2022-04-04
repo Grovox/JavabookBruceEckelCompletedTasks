@@ -1,20 +1,8 @@
-class Art {
-Art(){
-    System.out.println("Конструктор Art");
-}
-}
+//import version.debug.*;
+import version.debugoff.*;
 
-class Drawign extends Art{
-   Drawign(){
-       System.out.println("Конструктор Drawign");
-   }
-}
-public class Tree extends Drawign {
-   Tree(){
-       System.out.println("Конструктор Tree");
-   }
-
+public class Tree {
     public static void main(String[] args) {
-        Tree n = new Tree();
+        simple k = new simple();
     }
 }

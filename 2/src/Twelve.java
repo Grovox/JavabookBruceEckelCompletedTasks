@@ -1,18 +1,16 @@
+import java.util.*;
+/**
+* @author Максим Артемов
+*@version 4.0
+ */
 public class Twelve {
-    public static void main(String[] args) {
-        int i =0x3f;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
-        i>>>=1;
-        System.out.println(Integer.toBinaryString(i)+" "+i);
+ /** @parms ages
+   * @throws exceptions
+  */
+    public static void main(String[] ages){
+        System.out.println("Привет сегодня: ");
+        System.out.println(new Date());
     }
-}
+} /*Output: (55% match)
+Hi
+*///:~

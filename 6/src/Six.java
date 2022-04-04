@@ -1,23 +1,8 @@
-class GG{
-    GG(int i){
-        System.out.println("Конструктор GG");
-    }
-}
+import Test_six.*;
 
-class BGG extends GG{
-    BGG(int i){
-        super(i);
-        System.out.println("Конструктор BGG");
-    }
-}
-
-public class Six extends BGG{
-    Six(){
-        super(11);
-        System.out.println("Конструктор Six");
-    }
-
+public class Six {
     public static void main(String[] args) {
-        Six a = new Six();
+        tirlow k = new tirlow();
+        k.out();
     }
 }

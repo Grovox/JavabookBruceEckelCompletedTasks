@@ -1,17 +1,11 @@
-
-class speed_two{
-    int Time = 5;
-    int Long = 7;
-    int Speed;
-    void Calculation(){
-        Speed = Time * Long;
-    }
-}
+import java.util.*;
 
 public class Four {
     public static void main(String[] args) {
-        speed_two sp = new speed_two();
-        sp.Calculation();
-        System.out.println("Скорость: "+sp.Speed);
+        DateOnly Date1 = new DateOnly();
+        Date1.i=47;
+        Date1.d=1.1;
+        Date1.b=false;
+        System.out.println(Date1.i+" "+ Date1.d+" "+Date1.b);
     }
 }
