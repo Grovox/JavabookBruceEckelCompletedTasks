@@ -13,12 +13,14 @@ public class Twelve {
                         "Beware the Jubjub bird, and shun\n" +
                         "The frumious Bandersnatch.";
             Matcher m =
-                    Pattern.compile("(?m)(\\S+)\\s+((\\S+)\\s+(\\S+))$")
-                            .matcher(POEM);
+                    Pattern.compile("[^A-Z\\S]+[a-z]+").matcher(POEM);
+            int numberWords = 0;
             while(m.find()) {
                 for(int j = 0; j <= m.groupCount(); j++)
                     System.out.println("[" + m.group(j) + "]");
                 System.out.println();
+                numberWords++;
         }
+            System.out.println("Количество слов с срочной буквы ->"+numberWords);
     }
 }
