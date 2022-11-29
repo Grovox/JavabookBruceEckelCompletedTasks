@@ -1,5 +1,5 @@
 
-// {Args: JGrep.java "\\b[Ssct]\\w+"}
+// {Args: Fifteen.java "\\b[Ssct]\\w+"}
 
 import java.util.regex.*;
 import ExtraFile.TextFile;
@@ -30,7 +30,7 @@ public class Fifteen {
                 if (args[indexFlag].equals("Pattern.UNIX_LINES"))
                     flag += Pattern.UNIX_LINES;
             }
-        Pattern p = Pattern.compile(args[1], flag);
+        Pattern p = Pattern.compile(args[1],flag);
         int index = 0;
         Matcher m = p.matcher("");
         for(String line : new TextFile(args[0])) {
