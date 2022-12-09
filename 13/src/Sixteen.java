@@ -4,13 +4,14 @@ import ExtraFile.TextFile;
 
 public class Sixteen {
     public static void main(String[] args) throws Exception {
+
         if(args.length < 2) {
             System.out.println("Usage: java JGrep file regex");
             System.exit(0);
         }
         Pattern p = Pattern.compile(args[1]);
         Matcher m = p.matcher("");
-        int index = 0;
+        int index;
         if (args[0].matches("\\w+\\.\\w+")){
             index = 0;
             for(String line : new TextFile(args[0])) {
@@ -31,7 +32,6 @@ public class Sixteen {
                 }
             }
         }
-
     }
 }
 
