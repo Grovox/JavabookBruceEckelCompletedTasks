@@ -3,6 +3,7 @@
 interface HasBatteries {}
 interface Waterproof {}
 interface Shoots {}
+interface NewInterface {}
 
 class Toy {
     // Comment out the following default constructor
@@ -12,11 +13,11 @@ class Toy {
 }
 
 class FancyToy extends Toy
-        implements HasBatteries, Waterproof, Shoots {
+        implements HasBatteries, Waterproof, Shoots, NewInterface {
     FancyToy() { super(1); }
 }
 
-public class One {
+public class One_Two {
     static void printInfo(Class cc) {
         System.out.println("Class name: " + cc.getName() +
                 " is interface? [" + cc.isInterface() + "]");
