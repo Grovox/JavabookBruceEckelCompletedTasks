@@ -1,5 +1,3 @@
-import coffee.Coffee;
-import coffee.CoffeeGenerator;
 import factory.*;
 import net.mindview.util.TypeCounter;
 
