@@ -1,73 +1,49 @@
-//: typeinfo/RegisteredFactories.java
-// Registering Class Factories in the base class.
+import java.lang.reflect.InvocationTargetException;
+interface HasBatteries1 {}
+interface Waterproof1 {}
+interface Shoots1 {}
 
-import java.util.*;
-
-class Part1 {
-    public String toString() {
-        return getClass().getSimpleName();
-    }
-    static private List<Class<? extends Part1>> partFactories = new ArrayList<Class<? extends Part1>>();
-    static List<Part1> partStorage = new ArrayList<>();
-
-    static {
-        partFactories.add(FuelFilter.class);
-        partFactories.add(AirFilter.class);
-        partFactories.add(CabinAirFilter.class);
-        partFactories.add(OilFilter.class);
-        partFactories.add(FanBelt.class);
-        partFactories.add(PowerSteeringBelt.class);
-        partFactories.add(GeneratorBelt.class);
-    }
-    private static Random rand = new Random(47);
-    public static void createRandom() {
-        int n = rand.nextInt(partFactories.size());
-        try {
-            partStorage.add(partFactories.get(n).newInstance());
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+class Toy1 {
+    Toy1() {}
+    Toy1(int i) {
     }
 }
 
-class Filter extends Part1 {}
-
-class FuelFilter extends Filter {
-
-}
-
-class AirFilter extends Filter {
-
-}
-
-class CabinAirFilter extends Filter {
-
-}
-
-class OilFilter extends Filter {
-
-}
-
-class Belt extends Part1 {}
-
-class FanBelt extends Belt {
-
-}
-
-class GeneratorBelt extends Belt {
-
-}
-
-class PowerSteeringBelt extends Belt {
+class FancyToy1 extends Toy1
+        implements HasBatteries1, Waterproof1, Shoots1 {
+    FancyToy1() { super(1); }
 }
 
 public class Nineteen {
+    static void printInfo(Class cc) {
+        System.out.println("Class name: " + cc.getName() + " is interface? [" + cc.isInterface() + "]");
+        System.out.println("Simple name: " + cc.getSimpleName());
+        System.out.println("Canonical name : " + cc.getCanonicalName());
+    }
     public static void main(String[] args) {
-        for(int i = 0; i < 10; i++){
-            Part1.createRandom();
+        Class c = null;
+        try {
+            c = Class.forName("FancyToy1");
+        } catch(ClassNotFoundException e) {
+            System.out.println("Can't find FancyToy1");
+            System.exit(1);
         }
-        System.out.println(Part1.partStorage.toString());
+        printInfo(c);
+        for(Class face : c.getInterfaces())
+            printInfo(face);
+        Class up = c.getSuperclass();
+        Object obj = null;
+        try {
+            obj = up.getDeclaredConstructors()[1].newInstance(1);
+        } catch(InstantiationException e) {
+            System.out.println("Cannot instantiate");
+            System.exit(1);
+        } catch(IllegalAccessException e) {
+            System.out.println("Cannot access");
+            System.exit(1);
+        } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
+        printInfo(obj.getClass());
     }
 }
