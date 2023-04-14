@@ -1,80 +1,64 @@
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 interface Instrument{
     public void play();
 }
 
-abstract class Stinger implements Instrument{ }
-
-class Balalaika extends Stinger {
-    @Override
-    public void play() {
-        System.out.println("play Balalaika");
-    }
-}
-
-class Bow extends Stinger {
-    @Override
-    public void play() {
-        System.out.println("play Bow");
-    }
-}
-
-class Violin extends Stinger{
-    @Override
-    public void play() {
-        System.out.println("play Violin");
-    }
-}
-
-
-abstract class Keyboard implements Instrument{ }
-
-class PipeOrgan extends Keyboard{
-    @Override
-    public void play() {
-        System.out.println("play PipeOrgan");
-    }
-}
-
-class Synthesizer extends Keyboard{
-    @Override
-    public void play() {
-        System.out.println("play Synthesizer");
-    }
-}
-
-class Accordion extends Keyboard{
-    @Override
-    public void play() {
-        System.out.println("play Accordion");
-    }
-}
-
-abstract class Wind implements Instrument{
-    public void clearSpitValve(){
-        System.out.println("Wind instrument" + this.getClass().getName() + "is clean");
-    }
-}
-
-class Trumpet extends Wind{
-    @Override
-    public void play() {
-        System.out.println("play Trumpet");
-    }
-}
-
-class Clarinet extends  Wind{
+class Clarinet implements Instrument {
     @Override
     public void play() {
         System.out.println("play Clarinet");
     }
 }
 
-class Flute extends Wind{
+class Flute implements Instrument {
     @Override
     public void play() {
         System.out.println("play Flute");
     }
 }
 
+interface Wind {
+    public void clearSpitValve();
+}
+class WindInvocationHandler implements InvocationHandler {
+    private Instrument instrument;
+
+    private Wind wind;
+    public WindInvocationHandler(Instrument instrument) {
+
+        this.instrument = instrument;
+
+        wind = new Wind() {
+            @Override
+            public void clearSpitValve() {
+                System.out.println("The wind instrument is clean");
+            }
+        };
+
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        wind.clearSpitValve();
+        method.invoke(instrument,args);
+
+        return null;
+    }
+}
 public class TwentySix {
+    public static void main(String[] args) {
+        Instrument flute = new Flute();
+
+        ClassLoader vasiaClassLoader = flute.getClass().getClassLoader();
+
+        Class[] classes = flute.getClass().getInterfaces();
+
+        Instrument proxyFlute = (Instrument) Proxy.newProxyInstance(vasiaClassLoader, classes, new WindInvocationHandler(flute));
+
+        proxyFlute.play();
+    }
 }
