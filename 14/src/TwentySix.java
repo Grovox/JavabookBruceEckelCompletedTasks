@@ -53,11 +53,11 @@ public class TwentySix {
     public static void main(String[] args) {
         Instrument flute = new Flute();
 
-        ClassLoader vasiaClassLoader = flute.getClass().getClassLoader();
+        ClassLoader fluteClassLoader = flute.getClass().getClassLoader();
 
         Class[] classes = flute.getClass().getInterfaces();
 
-        Instrument proxyFlute = (Instrument) Proxy.newProxyInstance(vasiaClassLoader, classes, new WindInvocationHandler(flute));
+        Instrument proxyFlute = (Instrument) Proxy.newProxyInstance(fluteClassLoader, classes, new WindInvocationHandler(flute));
 
         proxyFlute.play();
     }
